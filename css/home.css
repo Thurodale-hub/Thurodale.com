@@ -1,0 +1,443 @@
+/* ==========================================================================
+   Thurodale — Homepage
+   Matches the approved geometric grackle mockup.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Reset / base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+.home-page {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F0E6; /* Warm Linen matching approved brand palette */
+  color: #16324F;             /* Ledger blue */
+  font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Full-page wrapper
+   -------------------------------------------------------------------------- */
+.home-layout {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Background artwork — spans the full page, anchored right
+   The image composition is: open left half, grackle-on-ledge right half.
+   -------------------------------------------------------------------------- */
+.home-artwork {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-artwork picture,
+.home-artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* The generated image has open space on its left and the bird on the right,
+     matching the mockup exactly. */
+  object-position: center center;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Content layer — sits above artwork
+   -------------------------------------------------------------------------- */
+.home-header,
+.home-main,
+.home-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.25rem 3.5rem;
+}
+
+.home-logo-link {
+  display: block;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.home-logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+/* Client Login */
+.home-login-link {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8125rem;           /* ~13px — small caps weight in mockup */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #16324F;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  transition: color 0.2s ease;
+}
+
+.login-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.home-login-link:hover,
+.home-login-link:focus-visible {
+  color: #0D2038;
+}
+.home-login-link:hover .login-arrow,
+.home-login-link:focus-visible .login-arrow {
+  transform: translate(2px, -2px);
+}
+.home-login-link:focus-visible {
+  outline: 2px solid #16324F;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Main content — left-aligned text column
+   -------------------------------------------------------------------------- */
+.home-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 3.5rem;
+}
+
+.home-content {
+  /* Left column: fits the single-line headline and supporting text cleanly */
+  max-width: min(640px, 50vw);
+}
+
+/* Fine rule above headline (matches mockup's small horizontal dash) */
+.home-content::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1.5px;
+  background-color: #16324F;
+  margin-bottom: 1.75rem;
+  opacity: 0.5;
+}
+
+.home-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 3.2vw, 3.15rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem 0;
+  color: #16324F;
+  white-space: nowrap;
+}
+
+.home-supporting {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin: 0 0 3.5rem 0;
+  color: #16324F;
+  opacity: 0.85;
+}
+
+/* Fine rule above Enquire (matches mockup) */
+.home-action {
+  border-top: 1px solid rgba(22, 50, 79, 0.25);
+  padding-top: 1.5rem;
+}
+
+/* Enquire link */
+.home-enquire-link {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #16324F;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.enquire-arrow {
+  transition: transform 0.2s ease;
+  display: inline-block;
+  font-size: 1.1rem;
+}
+
+.home-enquire-link:hover,
+.home-enquire-link:focus-visible {
+  color: #0D2038;
+}
+.home-enquire-link:hover .enquire-arrow,
+.home-enquire-link:focus-visible .enquire-arrow {
+  transform: translateX(4px);
+}
+.home-enquire-link:focus-visible {
+  outline: 2px solid #16324F;
+  outline-offset: 6px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer — spans full width, fine rule top
+   -------------------------------------------------------------------------- */
+.home-footer {
+  border-top: 1px solid rgba(22, 50, 79, 0.15);
+  padding: 1.5rem 3.5rem;
+}
+
+.home-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.home-footer-copyright {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #16324F;
+  opacity: 0.65;
+  text-align: left;
+}
+
+.home-footer-links {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #16324F;
+  opacity: 0.75;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  text-align: right;
+}
+
+.home-footer-links a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.home-footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.2s ease;
+}
+
+.home-footer-links a:hover::after,
+.home-footer-links a:focus-visible::after {
+  width: 100%;
+}
+
+.home-footer-links a:focus-visible {
+  outline: 2px solid #16324F;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Bullet separator between Legal and Privacy */
+.home-footer-separator {
+  opacity: 0.4;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .login-arrow,
+  .enquire-arrow,
+  .home-footer-links a::after {
+    transition: none;
+  }
+  .home-login-link:hover .login-arrow,
+  .home-login-link:focus-visible .login-arrow,
+  .home-enquire-link:hover .enquire-arrow,
+  .home-enquire-link:focus-visible .enquire-arrow {
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet (≤ 1024px) — slightly tighter
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .home-header,
+  .home-main,
+  .home-footer {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .home-content {
+    max-width: min(560px, 58vw);
+  }
+
+  .home-headline {
+    font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile (≤ 720px) — stacked layout, artwork behind
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .home-layout {
+    min-height: 100dvh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Full 100% rich color saturation on mobile */
+  .home-artwork {
+    position: fixed;
+    inset: 0;
+    opacity: 1;
+  }
+
+  .home-artwork picture,
+  .home-artwork-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+  }
+
+  .home-layout {
+    max-width: 390px;
+    margin: 0;
+  }
+
+  .home-header {
+    padding: 1.75rem 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .home-logo-img {
+    height: 24px;
+  }
+
+  .home-login-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .home-main {
+    padding: 0 1.5rem;
+    align-items: flex-start;
+    margin-top: 3.25rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .home-content {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .home-content::before {
+    margin-bottom: 1.5rem;
+  }
+
+  .home-headline {
+    font-size: clamp(1.85rem, 7.5vw, 2.35rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    white-space: normal;
+    word-break: normal;
+  }
+
+  .home-supporting {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    opacity: 0.9;
+  }
+
+  .home-action {
+    padding-top: 1.25rem;
+  }
+
+  .home-footer {
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+  }
+
+  .home-footer-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .home-footer-copyright {
+    text-align: left;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    color: #16324F;
+    opacity: 0.65;
+  }
+
+  .home-footer-links {
+    margin-left: auto;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .home-footer-links a {
+    color: #16324F;
+    opacity: 0.75;
+  }
+}

@@ -1,0 +1,475 @@
+/* ==========================================================================
+   Thurodale — Legal Notices
+   Mirrors the approved homepage minimalist geometric identity.
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility / Skip link
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1.5rem;
+  background: #16324F;
+  color: #F5F0E6;
+  padding: 0.6rem 1.2rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.875rem;
+  z-index: 999;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Page Base
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+}
+
+.legal-page {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F0E6; /* Warm Linen matching homepage */
+  color: #16324F;             /* Ledger blue */
+  font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Background Artwork — Spans full screen, fixed.
+   Features geometric/faceted grackle on Warm Linen paper, matching homepage.
+   Fades softly on scroll for comfortable reading.
+   -------------------------------------------------------------------------- */
+.legal-artwork {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #F5F0E6;
+  overflow: hidden;
+  transition: opacity 0.3s ease-out;
+  animation: fadeOnScroll linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 600px;
+}
+
+@keyframes fadeOnScroll {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+
+.legal-artwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Layout wrapper
+   -------------------------------------------------------------------------- */
+.legal-column {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 3.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Header — EXACTLY matches homepage header
+   Wordmark logo at top-left, Client Login at top-right.
+   -------------------------------------------------------------------------- */
+.legal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.25rem 0;
+  border-bottom: 1px solid rgba(22, 50, 79, 0.15);
+  margin-bottom: 3.5rem;
+  width: 100%;
+}
+
+.legal-logo-link {
+  display: block;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.legal-logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.legal-login-link {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #16324F;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.legal-login-link:hover,
+.legal-login-link:focus-visible {
+  opacity: 0.65;
+}
+
+/* --------------------------------------------------------------------------
+   Main Content — Reading column about 44rem (approx 704px)
+   -------------------------------------------------------------------------- */
+.legal-main {
+  width: 100%;
+  max-width: 44rem;
+  flex: 1;
+}
+
+.legal-header-block {
+  margin-bottom: 3.5rem;
+}
+
+/* Decorative fine rule above headline, identical to homepage */
+.legal-title::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1.5px;
+  background-color: #16324F;
+  margin-bottom: 1.75rem;
+  opacity: 0.5;
+}
+
+/* Single h1 Page Heading */
+.legal-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: #16324F;
+  margin: 0 0 1.75rem 0;
+}
+
+/* On this page navigation */
+.on-this-page {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: #16324F;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(22, 50, 79, 0.12);
+  border-bottom: 1px solid rgba(22, 50, 79, 0.12);
+}
+
+.on-this-page-label {
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.on-this-page-list {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.on-this-page-list li {
+  margin: 0;
+}
+
+.on-this-page-list a {
+  color: #16324F;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.on-this-page-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.2s ease;
+}
+
+.on-this-page-list a:hover::after,
+.on-this-page-list a:focus-visible::after {
+  width: 100%;
+}
+
+/* Section Container */
+.legal-section {
+  padding-bottom: 4rem;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid rgba(22, 50, 79, 0.12);
+}
+
+.legal-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 2.5rem;
+}
+
+/* Section Headings h2 — Playfair Display with scroll margin */
+.legal-section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #16324F;
+  margin: 0 0 1.5rem 0;
+  scroll-margin-top: 4rem;
+}
+
+/* Clause Headings h3 — Geist */
+.legal-section h3 {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+  color: #16324F;
+  margin: 2.25rem 0 0.65rem 0;
+}
+
+/* Body text & lists */
+.legal-section p {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #16324F;
+  opacity: 0.88;
+  margin: 0 0 1.15rem 0;
+}
+
+.legal-section ul {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: #16324F;
+  opacity: 0.88;
+  margin: 0 0 1.35rem 0;
+  padding-left: 1.4rem;
+}
+
+.legal-section li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-section strong {
+  font-weight: 500;
+  color: #16324F;
+  opacity: 1;
+}
+
+/* Links inside document text */
+.legal-section a {
+  color: #16324F;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity 0.2s ease;
+}
+
+.legal-section a:hover,
+.legal-section a:focus-visible {
+  opacity: 0.65;
+}
+
+.legal-section a:focus-visible {
+  outline: 2px solid #16324F;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Date / meta */
+.doc-meta {
+  font-size: 0.8125rem !important;
+  opacity: 0.7 !important;
+  margin-bottom: 1.85rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   Footer — mirrors homepage footer
+   -------------------------------------------------------------------------- */
+.legal-footer {
+  border-top: 1px solid rgba(22, 50, 79, 0.15);
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.legal-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.legal-footer-copyright {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #16324F;
+  opacity: 0.7;
+  text-align: left;
+}
+
+.legal-footer-links {
+  font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: #16324F;
+  opacity: 0.75;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  text-align: right;
+}
+
+.legal-footer-links a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.legal-footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.2s ease;
+}
+
+.legal-footer-links a:hover::after,
+.legal-footer-links a:focus-visible::after {
+  width: 100%;
+}
+
+.legal-footer-links a:focus-visible {
+  outline: 2px solid #16324F;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive: Tablet (≤ 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .legal-column {
+    padding: 0 2.5rem 3rem;
+  }
+
+  .legal-header {
+    padding: 2rem 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .legal-artwork-img {
+    height: 70vh;
+    opacity: 0.5;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive: Mobile (≤ 768px)
+   Stacked layout with artwork softly ghosted in background.
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .legal-artwork {
+    opacity: 1;
+  }
+
+  .legal-artwork-img {
+    object-position: center bottom;
+  }
+
+  .legal-column {
+    max-width: 390px;
+    margin: 0;
+    padding: 0 1.25rem 2.5rem;
+    box-sizing: border-box;
+  }
+
+  .legal-header {
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .legal-logo-img {
+    height: 24px;
+  }
+
+  .legal-login-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .legal-main {
+    max-width: 100%;
+  }
+
+  .legal-section {
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .legal-title {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .legal-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .legal-footer-links {
+    margin-left: 0;
+  }
+}
